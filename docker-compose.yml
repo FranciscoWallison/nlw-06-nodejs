@@ -1,0 +1,20 @@
+version: '3' # vs mais atual
+networks:
+  nlw-network:
+    driver: bridge
+services:             
+
+  app:
+    build: nodejs
+    container_name: nlw-05-nodejs
+    restart: always
+    tty: true
+    networks:
+      - nlw-network
+    ports:
+      - "3000:3000"
+    volumes:       
+      - ./nodejs:/src/app
+    working_dir: /src/app
+    environment:
+      - PORT=3000
