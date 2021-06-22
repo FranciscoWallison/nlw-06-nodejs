@@ -1,6 +1,8 @@
-# NLW Valoriza
+# nlw-06-nodejs
 
-## Regras
+## NLW Valoriza
+
+### Regras
 
 - Cadastro de usuário
 
@@ -23,10 +25,6 @@
   [ ] Não é permitido cadastrar elogios para usuários inválidos
 
   [ ] O usuário precisa estar autenticado na aplicação
-
-
-
-# nlw-06-nodejs
 
 # Dia - 1 [Mission: Node.js] Aula 01 – Liftoff
 ````
