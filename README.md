@@ -1,6 +1,21 @@
 # nlw-06-nodejs
 
 ## NLW Valoriza
+## Funcionalidades 
+- Cadastro de Usuários
+- Cadastro de TAGS ( Elogios possiveis)
+    - Somente usuário Administrador
+- Cadastro de Elogios
+    - ID do usuário
+    - ID da TAG
+    - Data da criação
+- Autenticação de usuário
+    - Gerar Token JWT
+    - Validar usuário logado nas rotas necessárias
+- Listagem de usuários
+- Listagem de TAGS
+- Listagem de elogios por usuário
+
 
 ### Regras
 
