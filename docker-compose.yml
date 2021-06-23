@@ -6,7 +6,7 @@ services:
 
   app:
     build: nodejs
-    container_name: nlw-05-nodejs
+    container_name: nlw-06-nodejs
     restart: always
     tty: true
     networks:
@@ -25,15 +25,11 @@ services:
       - TYPE_ORM_MIGRATIONS=./src/database/migrations/**.ts
       - TYPE_ORM_MIGRATIONS_DIR=./src/database/migrations
       # PARA OS DRIVE ENTRE sqlite, mysql E postgres
-      - TYPE_ORM_ENTITIES=./src/entities/sqlite_mysql_postgre
-      - TYPE_ORM_ENTITIES_DIR=./src/entities/sqlite_mysql_postgre/**.ts
-      # PARA O DRIVE mongodb
-      - MONGODB_TYPE_ORM_ENTITIES=./src/entities/mongodb/*.ts
-      - MONGODB_TYPE_ORM_ENTITIES_DIR=./src/entities/mongodb/**.ts
+      - TYPE_ORM_ENTITIES=./src/entities
+      - TYPE_ORM_ENTITIES_DIR=./src/entities/**.ts
     depends_on: 
       - db_mysql
       - db_pg
-      - db_mongodb
 
   # CONFIGURAÇÕES MYSQL
   db_mysql:
@@ -68,22 +64,5 @@ services:
       - POSTGRES_DB=database_nlw
       - POSTGRES_PASSWORD=postgres
       - PGPORT=5432
-    networks:
-      - nlw-network
-  
-  db_mongodb:
-    container_name: db_mongodb
-    image: mongo:latest
-    restart: always
-    ports:
-      - 27017:27017
-    environment:
-      - MONGO_INITDB_DATABASE=database_nlw
-      - MONGO_INITDB_ROOT_USERNAME=root
-      - MONGO_INITDB_ROOT_PASSWORD=root
-    volumes:
-      # Volume dos dados
-      - ./dbs/init/init-mongo.js:/docker-entrypoint-initdb.d/*.js
-      - ./dbs/mongo/dbdata:/data/db
     networks:
       - nlw-network

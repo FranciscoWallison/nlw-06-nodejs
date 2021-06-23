@@ -1,8 +1,8 @@
 # nlw-06-nodejs
 
-## NLW Valoriza
+# NLW Valoriza
 
-### Regras
+## Regras
 
 - Cadastro de usuário
 
@@ -12,11 +12,11 @@
 
 - Cadastro de TAG
 
-  [ ] Não é permitido cadastrar mais de uma tag com o mesmo nome
+  [ x ] Não é permitido cadastrar tag sem nome
 
-  [ ] Não é permitido cadastrar tag sem nome
+  [ x ] Não é permitido cadastrar mais de uma tag com o mesmo nome
 
-  [ ] Não é permitido o cadastro por usuários que não sejam administradores
+  [ x ] Não é permitido o cadastro por usuários que não sejam administradores
 
 - Cadastro de elogios
 
@@ -33,4 +33,8 @@
 # Dia - 2 [Mission: Node.js] Aula 02 – Maximum Speed
 ````
 # unidade
+````
+# Dia - 3 [Mission: Node.js] Aula 03 – In Orbit
+````
+# embuscadeevolução
 ````
