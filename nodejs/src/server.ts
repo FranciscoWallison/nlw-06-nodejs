@@ -1,7 +1,7 @@
 import "reflect-metadata";
 import express, { Request, Response, NextFunction } from "express";
 import "express-async-errors";
-
+import { logger } from "./config/logs";
 import { router } from "./routes";
 
 import "./database";
@@ -14,12 +14,16 @@ app.use(router);
 
 app.use(
   (err: Error, request: Request, response: Response, next: NextFunction) => {
-    if (err instanceof Error) {
-      return response.status(400).json({
-        error: err.message,
-      });
+    let error = {
+      error: err.message,
+    };
+    
+    if (err instanceof Error) {      
+      logger.info("400", error);
+      return response.status(400).json(error);
     }
 
+    logger.info("500", error);
     return response.status(500).json({
       status: "error",
       message: "Internal Server Error",
