@@ -3,7 +3,8 @@
 	"name": "nlw-06-nodejs",
 	"description": "",
 	"order": [
-		"25d9b65d-ed24-90db-df65-32478f2b5e72"
+		"25d9b65d-ed24-90db-df65-32478f2b5e72",
+		"c397bbd3-83d6-be13-41e2-753929f97ec8"
 	],
 	"folders": [],
 	"folders_order": [],
@@ -41,6 +42,41 @@
 			"helperAttributes": {},
 			"time": 1624322259523,
 			"name": "insert users",
+			"description": "",
+			"collectionId": "5ee10c98-37c8-7a75-9f8e-7f7bf4bf3d41",
+			"responses": [],
+			"rawModeData": "{\n\t\"name\": \"Chico Wallison\",\n\t\"email\": \"franciscowallison@gmail.com\",\n\t\"admin\": true\n}"
+		},
+		{
+			"id": "c397bbd3-83d6-be13-41e2-753929f97ec8",
+			"headers": "Accept: application/json\nContent-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:3000/users",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1624322259523,
+			"name": "insert tags",
 			"description": "",
 			"collectionId": "5ee10c98-37c8-7a75-9f8e-7f7bf4bf3d41",
 			"responses": [],
