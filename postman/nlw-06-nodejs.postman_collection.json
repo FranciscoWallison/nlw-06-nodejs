@@ -4,6 +4,8 @@
 	"description": "",
 	"order": [
 		"25d9b65d-ed24-90db-df65-32478f2b5e72",
+		"0a57534e-86cd-7b20-1f4c-3f79549d582b",
+		"1c786362-8209-1f5b-25df-34d609df5559",
 		"c397bbd3-83d6-be13-41e2-753929f97ec8"
 	],
 	"folders": [],
@@ -12,6 +14,76 @@
 	"owner": "2500282",
 	"public": false,
 	"requests": [
+		{
+			"id": "0a57534e-86cd-7b20-1f4c-3f79549d582b",
+			"headers": "Accept: application/json\nContent-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:3000/login",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1624573380077,
+			"name": "authenticate",
+			"description": "",
+			"collectionId": "5ee10c98-37c8-7a75-9f8e-7f7bf4bf3d41",
+			"responses": [],
+			"rawModeData": "{\n\t\"email\": \"franciscowallison@gmail.com\",\n\t\"password\": \"12345\"\n}"
+		},
+		{
+			"id": "1c786362-8209-1f5b-25df-34d609df5559",
+			"headers": "Accept: application/json\nContent-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:3000/compliments",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1624575219152,
+			"name": "insert compliments",
+			"description": "",
+			"collectionId": "5ee10c98-37c8-7a75-9f8e-7f7bf4bf3d41",
+			"responses": [],
+			"rawModeData": "{\n\t\"user_sender\": \"5c9d474f-b366-4bee-b467-de9b31cb7120\",\n\t\"user_receiver\": \"d6273fbf-9fab-4845-aa37-464f9b8ee23f\",\n\t\"tag_id\": \"62bc2188-35e4-4f7c-999a-bc9d0b0ada7f\",\n\t\"message\": \"show de bola\"\n}"
+		},
 		{
 			"id": "25d9b65d-ed24-90db-df65-32478f2b5e72",
 			"headers": "Accept: application/json\nContent-Type: application/json\n",
@@ -40,12 +112,12 @@
 			"tests": null,
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1624322259523,
+			"time": 1624573294980,
 			"name": "insert users",
 			"description": "",
 			"collectionId": "5ee10c98-37c8-7a75-9f8e-7f7bf4bf3d41",
 			"responses": [],
-			"rawModeData": "{\n\t\"name\": \"Chico Wallison\",\n\t\"email\": \"franciscowallison@gmail.com\",\n\t\"admin\": true\n}"
+			"rawModeData": "{\n\t\"name\": \"Chico Wallison\",\n\t\"email\": \"franciscowallison@gmail.com\",\n\t\"password\": \"12345\",\n\t\"admin\": true\n}"
 		},
 		{
 			"id": "c397bbd3-83d6-be13-41e2-753929f97ec8",
@@ -64,7 +136,7 @@
 					"enabled": true
 				}
 			],
-			"url": "http://localhost:3000/users",
+			"url": "http://localhost:3000/tags",
 			"queryParams": [],
 			"preRequestScript": null,
 			"pathVariables": {},
@@ -75,12 +147,12 @@
 			"tests": null,
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1624322259523,
+			"time": 1624557173993,
 			"name": "insert tags",
 			"description": "",
 			"collectionId": "5ee10c98-37c8-7a75-9f8e-7f7bf4bf3d41",
 			"responses": [],
-			"rawModeData": "{\n\t\"name\": \"Chico Wallison\",\n\t\"email\": \"franciscowallison@gmail.com\",\n\t\"admin\": true\n}"
+			"rawModeData": "{\n\t\"name\": \"teste\"\n}"
 		}
 	]
 }
