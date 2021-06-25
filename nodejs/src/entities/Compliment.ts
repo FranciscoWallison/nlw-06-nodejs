@@ -16,14 +16,14 @@ import {
   
     @Column()
     user_sender: string;
-  
+    //user cadastrando o elogio
     @JoinColumn({ name: "user_sender" })
     @ManyToOne(() => User)
     userSender: User;
   
     @Column()
     user_receiver: string;
-  
+    //user recebeu elogio 
     @JoinColumn({ name: "user_receiver" })
     @ManyToOne(() => User)
     userReceiver: User;
