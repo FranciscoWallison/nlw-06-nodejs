@@ -21,15 +21,18 @@ export class CreateCompliments1624539150570 implements MigrationInterface {
                 },
                 {
                     name: "user_sender",
-                    type: "uuid",
+                    type: "varchar",
+                    isNullable: true,
                 },
                 {
                     name: "user_receiver",
-                    type: "uuid",
+                    type: "varchar",
+                    isNullable: true,
                 },
                 {
                     name: "tag_id",
-                    type: "uuid",
+                    type: "varchar",
+                    isNullable: true,
                 },
                 {
                     name: "message",
