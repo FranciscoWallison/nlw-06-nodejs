@@ -19,7 +19,7 @@ export function ensureAuthenticated(
   }
 
   const [, token] = authToken.split(" ");
-
+  console.log('authToken', token);
   try {
     // Validar se token é válido
     const { sub } = verify(
