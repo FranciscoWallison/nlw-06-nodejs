@@ -1,34 +1,5 @@
-import "reflect-metadata";
-import express, { Request, Response, NextFunction } from "express";
-import "express-async-errors";
-import { logger } from "./config/logs";
-import { router } from "./routes";
+import { http } from './http';
+// import './websocket/client';
+// import './websocket/admin';
 
-import "./database";
-
-const app = express();
-
-app.use(express.json());
-
-app.use(router);
-
-app.use(
-  (err: Error, request: Request, response: Response, next: NextFunction) => {
-    let error = {
-      error: err.message,
-    };
-    
-    if (err instanceof Error) {      
-      logger.info("400", error);
-      return response.status(400).json(error);
-    }
-
-    logger.info("500", error);
-    return response.status(500).json({
-      status: "error",
-      message: "Internal Server Error",
-    });
-  }
-);
-
-app.listen(process.env.PORT, () => console.log("Server is running PORT: "+ process.env.PORT ));
+http.listen(process.env.PORT, () => console.log("Server is running PORT: "+ process.env.PORT ));
