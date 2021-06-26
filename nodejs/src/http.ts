@@ -15,8 +15,8 @@ app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'ejs');
 
 
-app.get('/login', (req, res) => {
-  return res.render('html/login.html');
+app.get('/main', (req, res) => {
+  return res.render('html/main.html');
 });
 
 
