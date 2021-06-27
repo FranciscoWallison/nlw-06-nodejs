@@ -13,6 +13,28 @@ O NLW Valoriza foi ensinado na Trilha de NodeJS pela professora  [Dani Leão](ht
   
 # NLW Valoriza
 
+<h2>⛏️ Tecnologias</h2>
+
+<ul>
+    <li>Node JS</li>
+    <li>Typescript</li>
+    <li>Express</li>
+    <li>Typeorm</li>
+    <li>express-async-errors</li>
+    <li>reflect-metadata</li>
+    <li>class-transformer</li>
+    <li>Sqlite3</li>
+    <li>bcryptjs</li>
+    <li>JWT</li>
+    <li>uuid</li>
+    <li>cors</li>
+    <li>dotenv</li>
+    <li>docker</li>
+    <li>docker-composer</li>
+    <li>mysql</li>
+    <li>PostgreSQL</li>
+</ul>
+
 ## Funcionalidades 
 - Cadastro de Usuários
 - Cadastro de TAGS ( Elogios possíveis)
