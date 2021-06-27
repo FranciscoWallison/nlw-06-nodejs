@@ -14,10 +14,12 @@ function login(){
             $('#error_login').text('Email ou senha incorretos.');
         }
         if(result.status == 200){
+            localStorage.clear();
             let data = await result.json().then(result => {return result});
             localStorage.setItem('access_nlw', JSON.stringify(data));
+            $("#login").hide();
+            validAces();
         }
-
     }).catch(async e => {			
 
 	}).finally(result => {

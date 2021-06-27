@@ -25,9 +25,9 @@ const listUsersController = new ListUsersController();
 routes.post("/users", createUserController.handle);
 routes.post("/login", authenticateUserController.handle);
 
-routes.post("/tags", 
-    ensureAdmin,
+routes.post("/tags",     
     ensureAuthenticated,
+    ensureAdmin,
     createTagController.handle
 );
 routes.post(

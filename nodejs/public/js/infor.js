@@ -1,0 +1,96 @@
+function infoInitMessage(type, data = []){
+    console.log('infoInitMessage', type == 'receive', type, data);
+    document.getElementById("info_list_message").innerHTML = "";
+    if(type == 'receive'){
+        $('#info_text_title').text('Elogios Recebidas');  
+        data.forEach(usersComplimentsReceive);
+    }
+    if(type == 'send'){
+        $('#info_text_title').text('Elogios Enviados');  
+        data.forEach(usersComplimentsSend);
+    }
+    
+}
+
+function usersComplimentsReceive(item, index) {
+    document.getElementById("info_list_message").innerHTML +=
+    `<li>
+        <div class="collapsible-header">`
+        +
+        item.userSender.name
+        +
+        `<span class="badge">#`
+        +
+        item.tag.name
+        +
+        `</span></div>
+        <div class="collapsible-body message-receive"><p>`+item.message+`</p></div>
+    </li>`;
+}
+
+
+function infoInitReceiveGet(){
+	consultData("users/compliments/receive", "GET")
+	.then( async result => {
+		if(result.status == 200){
+			$("#preloader").hide();
+			let data = await result.json().then(result => {return result});
+			$("#info_list").show();
+			$("#menu-nlw").show();
+			
+			
+			infoInitMessage('receive',data);
+		}
+		if(result.status == 401){
+			showLogin("preloader");
+		}
+	}).catch(async e => {
+		console.error('catch', e)
+		showLogin("preloader");
+	}).finally(result => {
+		$('body').addClass("authenticated-body");
+		$('body').removeClass("preload-body");
+	});
+}
+
+//  Send
+function infoInitSendGet(){
+	consultData("users/compliments/send", "GET")
+	.then( async result => {
+		if(result.status == 200){
+			$("#preloader").hide();
+			let data = await result.json().then(result => {return result});
+			$("#info_list").show();
+			$("#menu-nlw").show();
+			
+			
+			infoInitMessage('send',data);
+		}
+		if(result.status == 401){
+			showLogin("preloader");
+		}
+	}).catch(async e => {
+		console.error('catch', e)
+		showLogin("preloader");
+	}).finally(result => {
+		$('body').addClass("authenticated-body");
+		$('body').removeClass("preload-body");
+	});
+}
+
+function usersComplimentsSend(item, index) {
+    document.getElementById("info_list_message").innerHTML +=
+    `<li>
+        <div class="collapsible-header">`
+        +
+        item.userReceiver.email
+        +
+        `<span class="badge">#`
+        +
+        item.tag.name
+        +
+        `</span></div>
+        <div class="collapsible-body message-receive"><p>`+item.message+`</p></div>
+    </li>`;
+}
+

@@ -12,13 +12,13 @@
       display: flex;
       min-height: 100vh;
       flex-direction: column;
-      background: linear-gradient(217deg, rgb(151, 0, 255), rgba(0, 0, 0, 0.84) 70.71%), linear-gradient(127deg, rgb(0, 40, 255), rgba(0,255,0,0) 70.71%), linear-gradient(336deg, rgba(0,0,255,.8), rgb(0, 0, 255) 70.71%);
-          background-color: rgba(0, 0, 0, 0);
+      background: linear-gradient(217deg, rgb(151, 0, 255), rgba(0, 0, 0, 0.84) 70.71%), linear-gradient(127deg, rgb(0, 40, 255), rgba(0, 255, 0, 0) 70.71%), linear-gradient(336deg, rgba(0, 0, 255, .8), rgb(0, 0, 255) 70.71%);
+      background-color: rgba(0, 0, 0, 0);
       opacity: 8.5;
       background-color: #030303;
     }
 
-    
+
     main {
       flex: 1 0 auto;
     }
@@ -36,6 +36,10 @@
     }
 
     .label-nwl-6 {
+      color: #45aeff !important;
+    }
+
+    .nlw6-name {
       color: #45aeff !important;
     }
 
@@ -71,23 +75,45 @@
       margin-top: 35%;
     }
 
-    .nlw-input{
+    .nlw-input {
       margin: 0px 150px 20px 0 !important
     }
-    .nlw6-text{
+
+    .nlw6-text {
       color: #3A9EFF !important;
+    }
+
+    .message-receive {
+      background-color: #359dff;
+    }
+
+    .nav-menu {
+      color: #ea89ff;
+      background-color: #35adff30;
+      width: 100%;
+      height: 56px;
+      line-height: 56px;
     }
   </style>
 </head>
 
-<body class="authenticated-body">
+<body class="preload-body">
 
   <link href="//cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css" rel="stylesheet"
     id="bootstrap-css">
   <script src="//cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
   <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
   <!------ Include the above in your HEAD tag ---------->
-
+  <nav id="menu-nlw" style="display: none;" class="nav-menu">
+    <div class="nav-wrapper">
+      <a href="" class="brand-logo"> </a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="#" onclick=infoInitReceiveGet()>Recebidas</a></li>
+        <li><a href="#" onclick=infoInitSendGet()>Enviados</a></li>
+        <li><a href="#" onclick=infoInitSendGet()>Enviar Elogio</a></li>
+      </ul>
+    </div>
+  </nav>
   <div class="container">
     <div class="row">
       <div class="section"></div>
@@ -112,9 +138,12 @@
             </div>
             <!-- END PRELOADER -->
             <!-- init LOGIN -->
-            <div id="login" style="display: none;" class="nwl-6-login-depth-3 y-depth-3 x-depth-3 green-text nwl-6-login row">
+            <div id="login" style="display: none;"
+              class="nwl-6-login-depth-3 y-depth-3 x-depth-3 green-text nwl-6-login row">
               <div class="section"></div>
-              <div class="section"><h3 class="nlw6-text">Login</h3></div>
+              <div class="section">
+                <h3 class="nlw6-text">Login</h3>
+              </div>
               <div class="section">
                 <i id="error_login" class="mdi-alert-error red-text"></i>
               </div>
@@ -129,7 +158,7 @@
                   <input class='validate input-nlw-6' type='password' name='password' id='password_login' required />
                   <label for='password' class="label-nwl-6">Password</label>
                 </div>
-                <label style='float: right;' id="login_recover_account" >
+                <label style='float: right;' id="login_recover_account">
                   <b style="color: #F5F5F5;" class="reload-password" onclick=forgotPassword()>Esqueceu a senha?</b>
                 </label>
               </div>
@@ -149,23 +178,28 @@
               </center>
 
             </div>
-            <!-- END LOGIN -->            
+            <!-- END LOGIN -->
             <!-- init Create Account -->
-            <div id="create_account" style="display: none;" class="nwl-6-login-depth-3 y-depth-3 x-depth-3 green-text nwl-6-login row">
+            <div id="create_account" style="display: none;"
+              class="nwl-6-login-depth-3 y-depth-3 x-depth-3 green-text nwl-6-login row">
               <div class="section"></div>
-              <div class="section"><h3 class="nlw6-text">Criar Conta</h3></div>
               <div class="section">
-                <i id="alert_account"  class="mdi-alert-error"></i>
+                <h3 class="nlw6-text">Criar Conta</h3>
+              </div>
+              <div class="section">
+                <i id="alert_account" class="mdi-alert-error"></i>
               </div>
               <div class='row'>
                 <div class='input-field col s12'>
-                  <input class='validate input-nlw-6 input-nlw' type="text" name='username' id='nome_account' required />
+                  <input class='validate input-nlw-6 input-nlw' type="text" name='username' id='nome_account'
+                    required />
                   <label for='name' class="label-nwl-6">Nome</label>
                 </div>
               </div>
               <div class='row'>
                 <div class='input-field col s12'>
-                  <input class='validate input-nlw-6 nlw-input' type="text" name='username' id='email_account' required />
+                  <input class='validate input-nlw-6 nlw-input' type="text" name='username' id='email_account'
+                    required />
                   <label for='email' class="label-nwl-6">E-mail</label>
                 </div>
               </div>
@@ -194,15 +228,19 @@
             </div>
             <!-- END Create Account -->
             <!-- init Forgot Password -->
-            <div id="recover_account" style="display: none;" class="nwl-6-login-depth-3 y-depth-3 x-depth-3 green-text nwl-6-login row">
+            <div id="recover_account" style="display: none;"
+              class="nwl-6-login-depth-3 y-depth-3 x-depth-3 green-text nwl-6-login row">
               <div class="section"></div>
-              <div class="section"><h3 class="nlw6-text">Recuperar Senha</h3></div>
+              <div class="section">
+                <h3 class="nlw6-text">Recuperar Senha</h3>
+              </div>
               <div class="section">
                 <i id="alert_recover" class="mdi-alert-error red-text"></i>
               </div>
               <div class='row'>
                 <div class='input-field col s12'>
-                  <input class='validate input-nlw-6 nlw-input' type="text" name='username' id='email_recover' required />
+                  <input class='validate input-nlw-6 nlw-input' type="text" name='username' id='email_recover'
+                    required />
                   <label for='email' class="label-nwl-6">E-mail</label>
                 </div>
               </div>
@@ -222,6 +260,16 @@
             </div>
             <!-- END Forgot Password -->
 
+            <!-- ini informações -->
+            <div id="info_list" style="display: none;" class="section scrollspy">
+              <div class="section"></div>
+              <div class="section">
+                <h3 id="info_text_title" class="nlw6-name"></h3>
+              </div>
+              <ul id="info_list_message" class="collapsible">
+              </ul>
+            </div>
+            <!-- END -->
           </div>
         </center>
       </main>
@@ -236,4 +284,6 @@
   <script src="../js/login.js"></script>
   <script src="../js/createaccount.js"></script>
   <script src="../js/recoveraccount.js"></script>
+  <script src="../js/infor.js"></script>
+
 </body>
