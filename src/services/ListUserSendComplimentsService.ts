@@ -1,9 +1,9 @@
-import {connection}  from  '../database';
+import { getCustomRepository } from "typeorm";
 import { ComplimentsRepositories } from "../repositories/ComplimentsRepositories";
 
 class ListUserSendComplimentsService {
   async execute(user_id: string) {
-    const complimentsRepositories = (await connection).getCustomRepository(
+    const complimentsRepositories = getCustomRepository(
       ComplimentsRepositories
     );
 

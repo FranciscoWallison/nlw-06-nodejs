@@ -1,4 +1,4 @@
-import {connection}  from  '../database';
+import { getCustomRepository } from "typeorm";
 import { UsersRepositories } from "../repositories/UsersRepositories";
 import { hash } from "bcryptjs";
 
@@ -11,7 +11,7 @@ interface IUserRequest {
 
 class CreateUserService {
   async execute({ name, email, password, admin = false }: IUserRequest) {
-    const usersRepository = (await connection).getCustomRepository(UsersRepositories);
+    const usersRepository = getCustomRepository(UsersRepositories);
 
     console.log("Email", email);
 

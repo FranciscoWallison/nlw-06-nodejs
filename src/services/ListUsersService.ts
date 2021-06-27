@@ -1,12 +1,12 @@
-import {connection}  from  '../database';
+import { getCustomRepository } from "typeorm";
 import { UsersRepositories } from "../repositories/UsersRepositories";
 import { TagsRepositories } from "../repositories/TagsRepositories";
 import { classToPlain } from "class-transformer";
 
 class ListUserService {
   async execute() {
-    const usersRepositories = (await connection).getCustomRepository(UsersRepositories);
-    const tagsRepositories = (await connection).getCustomRepository(TagsRepositories);
+    const usersRepositories = getCustomRepository(UsersRepositories);
+    const tagsRepositories = getCustomRepository(TagsRepositories);
 
     const users = await usersRepositories.find();
 
