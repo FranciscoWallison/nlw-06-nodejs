@@ -1,0 +1,1 @@
+web: cd nodejs && yarn dev-mr
