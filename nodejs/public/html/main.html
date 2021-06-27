@@ -94,6 +94,10 @@
       height: 56px;
       line-height: 56px;
     }
+
+    #btn_send_new{
+      width: 80% !important
+    }
   </style>
 </head>
 
@@ -110,7 +114,9 @@
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><a href="#" onclick=infoInitReceiveGet()>Recebidas</a></li>
         <li><a href="#" onclick=infoInitSendGet()>Enviados</a></li>
-        <li><a href="#" onclick=infoInitSendGet()>Enviar Elogio</a></li>
+        <li><a href="#" onclick=infoCreateMessageGet()>Enviar Elogio</a></li>
+        <li><a href="#" onclick=sair()>Sair</a></li>
+        
       </ul>
     </div>
   </nav>
@@ -235,7 +241,7 @@
                 <h3 class="nlw6-text">Recuperar Senha</h3>
               </div>
               <div class="section">
-                <i id="alert_recover" class="mdi-alert-error red-text"></i>
+                <i id="" class="alert_recover mdi-alert-error red-text"></i>
               </div>
               <div class='row'>
                 <div class='input-field col s12'>
@@ -266,8 +272,44 @@
               <div class="section">
                 <h3 id="info_text_title" class="nlw6-name"></h3>
               </div>
+
               <ul id="info_list_message" class="collapsible">
               </ul>
+            </div>
+            <!-- send -->
+            <div id="send_compliment" style="display: none;" class="nwl-6-login-depth-3 y-depth-3 x-depth-3 green-text nwl-6-login row">
+              <div class="section"></div>
+              <div class="section">
+                <h3 class="nlw6-text">Enviar Elogio</h3>
+              </div>
+              <div class="section">
+                <i id="" class="alert_recover mdi-alert-error green-text"></i>
+              </div>
+              <div class='row'>
+                <div class='input-field col s12'>
+                  <select id="user-receive" class="browser-default" style="display: flex;">
+                    <option value="" disabled selected>Pessoa</option>
+                  </select>
+                </div>
+                <div class='input-field col s12'>
+                  <select id="tag-send" class="browser-default" style="display: flex;">
+                    <option value="" disabled selected>Tag's</option>
+                  </select>
+                </div>
+                <div class='input-field col s12'>
+                  <textarea id="textarea1" class="materialize-textarea" style="padding: 0 !important;"></textarea>
+                  <label for='elogio' class="label-nwl-6">Elogio</label>
+                </div>
+                <input class='hide' type="text" name='user_sender' id='user_sender'/>
+              </div>
+              <br />
+              <center>
+                <div class='row'>
+                  <button type='submit' name='btn_login' id="btn_send_new"
+                    class="col s6 btn btn-small nlw-text waves-effect z-depth-1 y-depth-1 login-nlw"
+                    onclick=infoCreateMessageNew()>Enviar</button>
+                </div>
+              </center>
             </div>
             <!-- END -->
           </div>

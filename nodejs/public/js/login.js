@@ -41,3 +41,10 @@ function disabledConsultLogin(valid){
         // $('#login_recover_account').show();
     }   
 }
+
+function sair(){
+    $("#info_list").hide();
+	$("#menu-nlw").hide();
+    $("#login").show();
+    localStorage.clear();
+}
