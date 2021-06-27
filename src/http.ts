@@ -1,11 +1,14 @@
 import 'reflect-metadata';
 import express, { NextFunction, Request, Response } from 'express';
 import 'express-async-errors';
-import { logger } from "./config/logs";
 import { routes } from './routes';
+import { logger } from "./config/logs";
 import { createServer } from 'http';
 import { Server, Socket } from 'socket.io';
 import path from 'path';
+
+
+import "./database";
 
 const app = express();
 

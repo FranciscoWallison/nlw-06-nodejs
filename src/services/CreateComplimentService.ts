@@ -1,4 +1,4 @@
-import {connection}  from  '../database';
+import { getCustomRepository } from "typeorm";
 import { ComplimentsRepositories } from "../repositories/ComplimentsRepositories";
 import { UsersRepositories } from "../repositories/UsersRepositories";
 
@@ -16,10 +16,10 @@ class CreateComplimentService {
     user_receiver,
     message,
   }: IComplimentRequest) {
-    const complimentsRepositories = (await connection).getCustomRepository(
+    const complimentsRepositories = getCustomRepository(
       ComplimentsRepositories
     );
-    const usersRepositories = (await connection).getCustomRepository(UsersRepositories);
+    const usersRepositories = getCustomRepository(UsersRepositories);
 
     if (user_sender === user_receiver) {
       throw new Error("Incorrect User Receiver");
