@@ -9,7 +9,7 @@
     "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js",
     "typeorm-mc": "yarn typeorm migration:create -c \"$CONNECTION_DRIVE\" -n",
     "typeorm-ec": "yarn typeorm entity:create -c \"$CONNECTION_DRIVE\" -n",
-    "start": "yarn typeorm migration:run -c \"$CONNECTION_DRIVE\" && ts-node-dev --transpile-only --ignore-watch node_modules src/server.ts "
+    "start":  "ts-node-dev --transpile-only --ignore-watch node_modules src/server.ts"
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.2",
@@ -41,6 +41,6 @@
     "winston-daily-rotate-file": "^4.5.5"
   },
   "engines": {
-    "node": "14.17.1"
+    "node": "14.16.1"
   }
 }

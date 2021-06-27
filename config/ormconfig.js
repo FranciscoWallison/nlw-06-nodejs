@@ -1,3 +1,4 @@
+require('dotenv').config();
 
 /**
  * Configurações de bancos sqlite, mysql, postgres e mongodb
