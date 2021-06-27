@@ -9,7 +9,7 @@
     "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js",
     "typeorm-mc": "yarn typeorm migration:create -c \"$CONNECTION_DRIVE\" -n",
     "typeorm-ec": "yarn typeorm entity:create -c \"$CONNECTION_DRIVE\" -n",
-    "start":  "ts-node-dev --transpile-only --ignore-watch node_modules src/server.ts"
+    "start":  "npm install -g ts-node && ts-node-dev --transpile-only --ignore-watch node_modules src/server.ts"
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.2",
