@@ -1,1 +1,0 @@
-web: cd nodejs && yarn install && yarn dev-mr
