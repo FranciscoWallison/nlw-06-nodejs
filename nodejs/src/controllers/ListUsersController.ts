@@ -7,7 +7,10 @@ class ListUsersController {
 
     const users = await listUsersService.execute();
 
-    return response.json(users);
+    let list = users;
+    Object.assign(list, {id_user: request.user_id});
+
+    return response.json(list);
   }
 }
 

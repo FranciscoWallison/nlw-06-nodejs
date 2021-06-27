@@ -43,7 +43,22 @@ class AuthenticateUserService {
       }
     );
 
-    return token;
+    const refresh_token = sign(
+      {
+        email: user.email,
+      },
+      token,
+      {
+        subject: user.id,
+        expiresIn: "2d",
+      }
+    );
+
+    let validAuthentication = {
+      token: token,
+      refresh_token: refresh_token
+    }
+    return validAuthentication;
   }
 }
 

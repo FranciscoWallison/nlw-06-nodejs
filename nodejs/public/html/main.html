@@ -1,0 +1,331 @@
+<head>
+
+  <style>
+    .authenticated-body {
+      background-image: url("../images/nlw6-1.png");
+      display: flex;
+      min-height: 100vh;
+      flex-direction: column;
+    }
+
+    .preload-body {
+      display: flex;
+      min-height: 100vh;
+      flex-direction: column;
+      background: linear-gradient(217deg, rgb(151, 0, 255), rgba(0, 0, 0, 0.84) 70.71%), linear-gradient(127deg, rgb(0, 40, 255), rgba(0, 255, 0, 0) 70.71%), linear-gradient(336deg, rgba(0, 0, 255, .8), rgb(0, 0, 255) 70.71%);
+      background-color: rgba(0, 0, 0, 0);
+      opacity: 8.5;
+      background-color: #030303;
+    }
+
+
+    main {
+      flex: 1 0 auto;
+    }
+
+    .nwl-6-login {
+      display: inline-block;
+      padding: 32px 48px 0px 48px;
+      border: 1px;
+      margin-top: 100px;
+      background-color: #14121e7d !important
+    }
+
+    .nwl-6-login-depth-3 {
+      box-shadow: 0 6px 10px 0 rgb(255, 134, 255), 0 1px 18px 0 rgb(254, 135, 255), 0 3px 5px -1px rgb(255, 131, 255);
+    }
+
+    .label-nwl-6 {
+      color: #45aeff !important;
+    }
+
+    .nlw6-name {
+      color: #45aeff !important;
+    }
+
+    .input-nlw-6 {
+      border-bottom: 1px solid #9562ed !important;
+    }
+
+    .btn,
+    .login-nlw {
+      background-color: #a662f4d1 !important;
+      margin-left: 65px !important;
+    }
+
+    .login-nlw:hover {
+      background-color: #4690FE !important;
+      margin-left: 65px !important;
+      box-shadow: 0 2px 5px 0 rgb(53, 137, 255), 0 1px 10px 0 rgb(53, 137, 255), 0 2px 3px -1px rgb(53, 137, 255) !important;
+    }
+
+    .nlw-text {
+      color: #00b4ff !important;
+      border-color: #3988ff !important;
+      -webkit-text-stroke: 0.2px black;
+      -webkit-text-stroke-width: 0.2px;
+      -webkit-text-stroke-color: #00000014;
+    }
+
+    .reload-password {
+      cursor: pointer;
+    }
+
+    .preload-nlw {
+      margin-top: 35%;
+    }
+
+    .nlw-input {
+      margin: 0px 150px 20px 0 !important
+    }
+
+    .nlw6-text {
+      color: #3A9EFF !important;
+    }
+
+    .message-receive {
+      background-color: #359dff;
+    }
+
+    .nav-menu {
+      color: #ea89ff;
+      background-color: #35adff30;
+      width: 100%;
+      height: 56px;
+      line-height: 56px;
+    }
+
+    #btn_send_new{
+      width: 80% !important
+    }
+  </style>
+</head>
+
+<body class="preload-body">
+
+  <link href="//cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css" rel="stylesheet"
+    id="bootstrap-css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  <!------ Include the above in your HEAD tag ---------->
+  <nav id="menu-nlw" style="display: none;" class="nav-menu">
+    <div class="nav-wrapper">
+      <a href="" class="brand-logo"> </a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="#" onclick=infoInitReceiveGet()>Recebidas</a></li>
+        <li><a href="#" onclick=infoInitSendGet()>Enviados</a></li>
+        <li><a href="#" onclick=infoCreateMessageGet()>Enviar Elogio</a></li>
+        <li><a href="#" onclick=sair()>Sair</a></li>
+        
+      </ul>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="row">
+      <div class="section"></div>
+      <main>
+        <center>
+          <div class="container">
+            <!-- INIT PRELOADER -->
+            <div id="preloader" class=" y-depth-3 x-depth-3 green-text row preload-nlw">
+              <div class="preloader-wrapper big active">
+                <div class="spinner-layer spinner-blue">
+                  <div class="circle-clipper left">
+                    <div class="circle"></div>
+                  </div>
+                  <div class="gap-patch">
+                    <div class="circle"></div>
+                  </div>
+                  <div class="circle-clipper right">
+                    <div class="circle"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- END PRELOADER -->
+            <!-- init LOGIN -->
+            <div id="login" style="display: none;"
+              class="nwl-6-login-depth-3 y-depth-3 x-depth-3 green-text nwl-6-login row">
+              <div class="section"></div>
+              <div class="section">
+                <h3 class="nlw6-text">Login</h3>
+              </div>
+              <div class="section">
+                <i id="error_login" class="mdi-alert-error red-text"></i>
+              </div>
+              <div class='row'>
+                <div class='input-field col s12'>
+                  <input class='validate input-nlw-6' type="text" name='username' id='email_login' required />
+                  <label for='email' class="label-nwl-6">E-mail</label>
+                </div>
+              </div>
+              <div class='row'>
+                <div class='input-field col m12'>
+                  <input class='validate input-nlw-6' type='password' name='password' id='password_login' required />
+                  <label for='password' class="label-nwl-6">Password</label>
+                </div>
+                <label style='float: right;' id="login_recover_account">
+                  <b style="color: #F5F5F5;" class="reload-password" onclick=forgotPassword()>Esqueceu a senha?</b>
+                </label>
+              </div>
+              <br />
+              <center>
+                <div class='row'>
+                  <button type='submit' name='btn_login' id='btn_logar'
+                    class="col s6 btn btn-small nlw-text waves-effect z-depth-1 y-depth-1 login-nlw"
+                    onclick=login()>Login</button>
+                </div>
+                <div class='row'>
+                  <button type='submit' name='btn_login'
+                    class="col s6 btn btn-small nlw-text waves-effect z-depth-1 y-depth-1 login-nlw"
+                    onclick=createAccount()>Criar Conta</button>
+                </div>
+
+              </center>
+
+            </div>
+            <!-- END LOGIN -->
+            <!-- init Create Account -->
+            <div id="create_account" style="display: none;"
+              class="nwl-6-login-depth-3 y-depth-3 x-depth-3 green-text nwl-6-login row">
+              <div class="section"></div>
+              <div class="section">
+                <h3 class="nlw6-text">Criar Conta</h3>
+              </div>
+              <div class="section">
+                <i id="alert_account" class="mdi-alert-error"></i>
+              </div>
+              <div class='row'>
+                <div class='input-field col s12'>
+                  <input class='validate input-nlw-6 input-nlw' type="text" name='username' id='nome_account'
+                    required />
+                  <label for='name' class="label-nwl-6">Nome</label>
+                </div>
+              </div>
+              <div class='row'>
+                <div class='input-field col s12'>
+                  <input class='validate input-nlw-6 nlw-input' type="text" name='username' id='email_account'
+                    required />
+                  <label for='email' class="label-nwl-6">E-mail</label>
+                </div>
+              </div>
+              <div class='row'>
+                <div class='input-field col m12'>
+                  <input class='validate input-nlw-6' type='password' name='password' id='password_account' required />
+                  <label for='password' class="label-nwl-6">Password</label>
+                </div>
+
+              </div>
+              <br />
+              <center>
+                <div class='row'>
+                  <button type='submit' name='btn_login' id="btn_account"
+                    class="col s6 btn btn-small nlw-text waves-effect z-depth-1 y-depth-1 login-nlw"
+                    onclick=createNewAccount()>Criar Conta</button>
+                </div>
+                <div class='row'>
+                  <button type='submit' name='btn_login'
+                    class="col s6 btn btn-small nlw-text waves-effect z-depth-1 y-depth-1 login-nlw"
+                    onclick='showLogin("create_account")'>Cancelar</button>
+                </div>
+
+              </center>
+
+            </div>
+            <!-- END Create Account -->
+            <!-- init Forgot Password -->
+            <div id="recover_account" style="display: none;"
+              class="nwl-6-login-depth-3 y-depth-3 x-depth-3 green-text nwl-6-login row">
+              <div class="section"></div>
+              <div class="section">
+                <h3 class="nlw6-text">Recuperar Senha</h3>
+              </div>
+              <div class="section">
+                <i id="" class="alert_recover mdi-alert-error red-text"></i>
+              </div>
+              <div class='row'>
+                <div class='input-field col s12'>
+                  <input class='validate input-nlw-6 nlw-input' type="text" name='username' id='email_recover'
+                    required />
+                  <label for='email' class="label-nwl-6">E-mail</label>
+                </div>
+              </div>
+              <br />
+              <center>
+                <div class='row'>
+                  <button type='submit' name='btn_login' id="btn_recover"
+                    class="col s6 btn btn-small nlw-text waves-effect z-depth-1 y-depth-1 login-nlw"
+                    onclick=recoverAccount()>Enviar</button>
+                </div>
+                <div class='row'>
+                  <button type='submit' name='btn_login'
+                    class="col s6 btn btn-small nlw-text waves-effect z-depth-1 y-depth-1 login-nlw"
+                    onclick='showLogin("recover_account")'>Cancelar</button>
+                </div>
+              </center>
+            </div>
+            <!-- END Forgot Password -->
+
+            <!-- ini informações -->
+            <div id="info_list" style="display: none;" class="section scrollspy">
+              <div class="section"></div>
+              <div class="section">
+                <h3 id="info_text_title" class="nlw6-name"></h3>
+              </div>
+
+              <ul id="info_list_message" class="collapsible">
+              </ul>
+            </div>
+            <!-- send -->
+            <div id="send_compliment" style="display: none;" class="nwl-6-login-depth-3 y-depth-3 x-depth-3 green-text nwl-6-login row">
+              <div class="section"></div>
+              <div class="section">
+                <h3 class="nlw6-text">Enviar Elogio</h3>
+              </div>
+              <div class="section">
+                <i id="" class="alert_recover mdi-alert-error green-text"></i>
+              </div>
+              <div class='row'>
+                <div class='input-field col s12'>
+                  <select id="user-receive" class="browser-default" style="display: flex;">
+                    <option value="" disabled selected>Pessoa</option>
+                  </select>
+                </div>
+                <div class='input-field col s12'>
+                  <select id="tag-send" class="browser-default" style="display: flex;">
+                    <option value="" disabled selected>Tag's</option>
+                  </select>
+                </div>
+                <div class='input-field col s12'>
+                  <textarea id="textarea1" class="materialize-textarea" style="padding: 0 !important;"></textarea>
+                  <label for='elogio' class="label-nwl-6">Elogio</label>
+                </div>
+                <input class='hide' type="text" name='user_sender' id='user_sender'/>
+              </div>
+              <br />
+              <center>
+                <div class='row'>
+                  <button type='submit' name='btn_login' id="btn_send_new"
+                    class="col s6 btn btn-small nlw-text waves-effect z-depth-1 y-depth-1 login-nlw"
+                    onclick=infoCreateMessageNew()>Enviar</button>
+                </div>
+              </center>
+            </div>
+            <!-- END -->
+          </div>
+        </center>
+      </main>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
+      <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+
+    </div>
+  </div>
+
+  <script src="../js/main.js"></script>
+  <script src="../js/login.js"></script>
+  <script src="../js/createaccount.js"></script>
+  <script src="../js/recoveraccount.js"></script>
+  <script src="../js/infor.js"></script>
+
+</body>
