@@ -1,5 +1,16 @@
-# nlw-06-nodejs
+# [NLW#6] Start Project NodeJs e ...Docker, Docker-Compose, [Heroku](https://nlw-06-nodejs.herokuapp.com/), Sqlit, Mysql e Porstgres
 
+
+<img src="https://github.com/FranciscoWallison/nlw-06-nodejs/blob/master/config/project.gif" width="900" />
+
+ <h1 align="center">  NLW Valoriza  </h1>
+  
+<p align="center">Sobre </p>
+
+NLW Valoriza** se trata de uma API feita em NodeJS, Typescript, Express sobre como compartilhar elogios para alguém que admiramos em nosso ambiente de trabalho.
+Este projeto faz parte do 6 evento da NLW que tradicionalmente é oferecido pela time da [Rocketseat](https://rocketseat.com.br/),
+O NLW Valoriza foi ensinado na Trilha de NodeJS pela professora  [Dani Leão](https://github.com/danileao).
+  
 # NLW Valoriza
 
 ## Funcionalidades 
