@@ -1,7 +1,7 @@
 # [NLW#6] Start Project NodeJs e ...Docker, Docker-Compose, [Heroku](https://nlw-06-nodejs.herokuapp.com/), Sqlit, Mysql e Porstgres
 
 
-<img src="https://github.com/FranciscoWallison/nlw-06-nodejs/blob/master/config/project.gif" width="900" />
+<img src="https://github.com/FranciscoWallison/nlw-06-nodejs/blob/master/config/project.gif" width="970" />
 
  <h1 align="center">  NLW Valoriza  </h1>
   
